@@ -49,6 +49,7 @@ public class CovidRestrictions {
 			remainingPeopleCapacity = maxPeopleCapacity - (remainingPeopleCapacity - peopleWaitingToEnter);
 
 			System.out.println("Number of People can enter into the shop: " + remainingPeopleCapacity);
+			System.out.println("Remaining people waiting to enter: "+ (peopleWaitingToEnter- remainingPeopleCapacity));
 
 			System.out.println("Maximum capacity reached");
 
