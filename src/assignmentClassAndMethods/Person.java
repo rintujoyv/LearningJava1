@@ -5,20 +5,9 @@ public class Person {
 	int height;
 	int weight;
 
-	void isEligible() {
-
-		if ((height < 90 || height > 200) || (weight < 15 || weight > 95)) {
-
-			System.out.println("Person is not allowed to board the ride");
-
+	void postToFacebook(String nameOfPark){
 		
-		} else {
-
-			System.out.println("Person is allowed to board the ride");
-		}
-
+		System.out.println("Welcome to "+nameOfPark);
 	}
-		
-		}
 
-
+}

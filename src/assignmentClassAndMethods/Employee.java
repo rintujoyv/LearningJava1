@@ -26,12 +26,23 @@ public class Employee {
 
 		System.out.println("Enter the no. of hours worked in a day");
 		hoursWorkedInADay = sc.nextDouble();
+		if (hoursWorkedInADay <= 20) {
 
-		System.out.println("Enter the no. of days worked in a week");
-		daysWorkedInAWeek = sc.nextDouble();
+			System.out.println("Enter the no. of days worked in a week");
+			daysWorkedInAWeek = sc.nextDouble();
+			if (daysWorkedInAWeek <= 7) {
 
-		// Salary Before tax
-		empWeeklySalary = hourlyRate * hoursWorkedInADay * daysWorkedInAWeek;
+				// Salary Before tax
+				empWeeklySalary = hourlyRate * hoursWorkedInADay * daysWorkedInAWeek;
+
+			} else {
+
+				System.out.println("Enter the valid days");
+			}
+		} else {
+			System.out.println("Enter the valid hours");
+		}
+
 		return empWeeklySalary;
 
 	}

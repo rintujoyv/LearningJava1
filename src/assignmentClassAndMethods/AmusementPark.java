@@ -6,22 +6,19 @@ public class AmusementPark {
 
 	public static void main(String[] args) {
 		
+		//Creating an object
+		
+		AmusmentParkRide rollerCoaster = new AmusmentParkRide();
+		
+		
 		Person rintu = new Person();
+		rintu.height=35;
+		rintu.weight= 98;
+		rintu.postToFacebook("Wonderland");
 		
-		System.out.println("Enter the Person's height");
-		Scanner sc = new Scanner(System.in);
+		//Check Eligibilty of rintu for Rollercoaster
 		
-		int heightEntered = sc.nextInt();
-		
-		System.out.println("Enter the Person's weight");
-		int weightEntered =sc.nextInt();
-		
-		rintu.height= heightEntered;
-		rintu.weight=weightEntered;
-		
-		rintu.isEligible();
-		
-		
+		rollerCoaster.isEligible(rintu.height, rintu.weight);
 
 	}
 
