@@ -10,8 +10,6 @@ public class Atm {
 
 	final double dailyLimit = 1000;
 
-	
-
 	void depositCash(Person p1, double cashToDeposit) {
 
 		System.out.println("Select the account to do the cash deposit");
@@ -26,6 +24,8 @@ public class Atm {
 			System.out.println("Available balance in Savings account: " + p1.totalFundsAvailableInSav);
 			cashToDeposit = cashToDeposit + p1.totalFundsAvailableInSav;
 			System.out.println("Total balance in Savings account: " + cashToDeposit);
+			continueTrans(p1);
+
 			break;
 
 		}
@@ -34,6 +34,8 @@ public class Atm {
 			System.out.println("Available balance in Checking account: " + p1.totalFundsAvailableInChec);
 			cashToDeposit = cashToDeposit + p1.totalFundsAvailableInChec;
 			System.out.println("Total balance in Checking account: " + cashToDeposit);
+			continueTrans(p1);
+
 			break;
 
 		}
@@ -61,6 +63,7 @@ public class Atm {
 					cashToWithdraw = p1.totalFundsAvailableInSav - cashToWithdraw;
 					System.out.println("Please collect the cash");
 					System.out.println("Total balance in Savings account: " + cashToWithdraw);
+					continueTrans(p1);
 				} else {
 
 					System.out.println(
@@ -79,6 +82,7 @@ public class Atm {
 					cashToWithdraw = p1.totalFundsAvailableInChec - cashToWithdraw;
 					System.out.println("Please collect the cash");
 					System.out.println("Total balance in Checking account: " + cashToWithdraw);
+					continueTrans(p1);
 					break;
 				} else {
 
@@ -108,9 +112,23 @@ public class Atm {
 
 	}
 
+	void continueTrans(Person p1) {
+
+		System.out.println("\nDo you want to continue transactions (y/n)");
+		String option = sc.next();
+
+		if (option.equals("y")) {
+
+			p1.validpin();
+
+		} else
+			sc.close();
+	}
+
 	void dailyTranLimit(Person p1) {
 
 		System.out.println("Your daily ATM withdrawal limit: " + dailyLimit);
+		continueTrans(p1);
 
 	}
 

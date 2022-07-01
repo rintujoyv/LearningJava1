@@ -12,51 +12,18 @@ public class Person {
 
 	double totalFundsAvailableInSav;
 	double totalFundsAvailableInChec;
-
+	int noOfAttempts = 0;
 	Scanner sc = new Scanner(System.in);
 
 	void validpin() {
+		System.out.println("Swipe your card and enter the pin");
 
-		int noOfAttempts = 0;
 		pin = sc.nextInt();
 
 		do {
-
 			if (pin == 1234) {
-				System.out.println("***Welcome " + accountHolder + "***");
-				System.out.println("Choose the type of bank account to know the balance");
-				System.out.println("1. Checking account");
-				System.out.println("2. Savings account");
-				System.out.println("3. Other accounts");
 
-				typesOfAccount = sc.nextInt();
-
-				switch (typesOfAccount) {
-
-				case 1: {
-
-					System.out.println("Account number: " + accountNumberForChec);
-					System.out.println("Total Funds Available: $" + totalFundsAvailableInChec);
-					break;
-				}
-				case 2: {
-
-					System.out.println("Account number: " + accountNumberForSav);
-					System.out.println("Total Funds Available: $" + totalFundsAvailableInSav);
-					break;
-				}
-
-				case 3: {
-
-					System.out.println("No Atm transcations allowed. Please visit the branch");
-					break;
-				}
-
-				default:
-
-					System.out.println("Invalid Entry");
-
-				}
+				balance();
 
 				break;
 
@@ -65,13 +32,53 @@ public class Person {
 				pin = sc.nextInt();
 				noOfAttempts++;
 			}
-		} while (noOfAttempts < 2);
+		} while (noOfAttempts <= 2);
 
-		if (noOfAttempts == 2) {
-			System.out.println("Account locked, Please visit the branch and reset the pin");
+	}
+
+	void balance() {
+
+		System.out.println("***Welcome " + accountHolder + "***");
+		System.out.println("Choose the type of bank account to know the balance");
+		System.out.println("1. Checking account");
+		System.out.println("2. Savings account");
+		System.out.println("3. Other accounts");
+
+		typesOfAccount = sc.nextInt();
+
+		switch (typesOfAccount) {
+
+		case 1: {
+
+			System.out.println("Account number: " + accountNumberForChec);
+			System.out.println("Total Funds Available: $" + totalFundsAvailableInChec);
+			break;
+		}
+		case 2: {
+
+			System.out.println("Account number: " + accountNumberForSav);
+			System.out.println("Total Funds Available: $" + totalFundsAvailableInSav);
+			break;
+		}
+
+		case 3: {
+
+			System.out.println("No Atm transcations allowed. Please visit the branch");
+			break;
+		}
+
+		default:
+
+			System.out.println("Invalid Entry");
+
 		}
 
 	}
+
+	// if (noOfAttempts == 2) {
+	// System.out.println("Account locked, Please visit the branch and reset the
+	// pin");
+	// }
 
 	Person(String accHolder, int pinNo, long accNoSav, double totalFundSav, long accNoChec, double totalFundsChec) {
 
