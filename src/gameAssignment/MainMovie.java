@@ -7,8 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-
-
 public class MainMovie {
 
 	public static void main(String[] args) throws Exception {
@@ -30,7 +28,7 @@ public class MainMovie {
 
 		while ((movies = br.readLine()) != null) { // readLine() used to read the line of text
 			movieList.add(movies); // add method used to add the movies in movieList
-			//System.out.println(movies);
+			// System.out.println(movies);
 		}
 		br.close();
 
@@ -38,9 +36,10 @@ public class MainMovie {
 
 		selectedMovie = mov.getRandomElement(movieList); // Generate a random value from the arraylist
 		System.out.println("Random movie name: " + selectedMovie);
-		//System.out.println("Selected Movie size: " + selectedMovie.length());
+		// System.out.println("Selected Movie size: " + selectedMovie.length());
 
-		for (int i = 0; i < selectedMovie.length(); i++) {//Converting the characters to underscore and spaces in arraylist
+		for (int i = 0; i < selectedMovie.length(); i++) {// Converting the characters to underscore and spaces in
+															// arraylist
 			if (selectedMovie.toCharArray()[i] == ' ') {
 				guessedCharacters.add(i, " ");
 			} else {
@@ -57,8 +56,9 @@ public class MainMovie {
 			String letterGuessed = sc.next();
 
 			if (selectedMovie.contains(letterGuessed)) {
-				//System.out.println("You have guessed correctly");
-				char[] t = letterGuessed.toCharArray(); //Converting the character to char array and storing in variable "t"
+				// System.out.println("You have guessed correctly");
+				char[] t = letterGuessed.toCharArray(); // Converting the character to char array and storing in
+														// variable "t"
 
 				for (int j = 0; j < selectedMovie.length(); j++) {
 					if (selectedMovie.contains(letterGuessed.toString()) && selectedMovie.charAt(j) == t[0]) {
@@ -69,13 +69,12 @@ public class MainMovie {
 
 				System.out.println("You have guessed (" + failCount + ") wrong letters ");
 			} else {
-				//System.out.println("You have guessed Incorrectly");
+				// System.out.println("You have guessed Incorrectly");
 				incorrectCharacters.add(letterGuessed);
 				failCount++;
 				System.out.println(
 						"You have guessed (" + failCount + ") wrong letters :" + incorrectCharacters.toString());
 			}
-
 
 			if (selectedMovie.equalsIgnoreCase(mov.listToStringConvert(guessedCharacters))) {
 				System.out.println();
